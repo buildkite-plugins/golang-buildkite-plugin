@@ -3,3 +3,11 @@ description: Run a command in a specific golang docker container
 author: https://github.com/buildkite
 requirements:
   - docker
+configuration:
+  properties:
+    version:
+      type: string
+    package:
+      type: string
+  required: []
+
