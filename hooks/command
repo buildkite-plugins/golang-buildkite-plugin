@@ -1,0 +1,27 @@
+#!/bin/bash
+set -euo pipefail
+
+go_in_docker() {
+  go_version="$1"
+  pkg="$2"
+  shift 2
+
+  docker run \
+    -v "${PWD}:/go/src/${pkg}" \
+    -w "/go/src/${pkg}" \
+    --rm "golang:${go_version}" \
+    "$@"
+}
+
+if [[ "${BUILDKITE_PLUGIN_GOLANG_DEBUG:-false}" =~ (true|on|1) ]] ; then
+  echo "--- :hammer: Enabling debug mode"
+  env | sort | grep BUILDKITE_PLUGIN_GOLANG
+fi
+
+go_version="${BUILDKITE_PLUGIN_GOLANG_VERSION:-latest}"
+package="${BUILDKITE_PLUGIN_GOLANG_PACKAGE:-${BUILDKITE_PIPELINE_SLUG}}"
+
+echo -ne '\033[90m$\033[0m' >&2
+echo " ${BUILDKITE_COMMAND}" >&2
+
+go_in_docker "$go_version" "$package" "${BUILDKITE_COMMAND}"

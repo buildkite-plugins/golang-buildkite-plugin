@@ -1,0 +1,24 @@
+steps:
+  - label: run bats tests
+    plugins:
+      docker-compose#v2.4.0:
+        run: tests
+
+  - label: ":bash: Shellcheck"
+    plugins:
+      shellcheck#v1.0.1:
+        files:
+          - hooks/*
+
+  - label: ":sparkles: Linter"
+    plugins:
+      plugin-linter#v2.0.0:
+        id: golang-build
+
+  - label: test running a specific version
+    command: go version
+    plugins:
+      ${BUILDKITE_REPO}#${BUILDKITE_COMMIT}:
+        version: 1.10.2
+
+

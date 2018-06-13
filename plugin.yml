@@ -1,0 +1,5 @@
+name: Golang
+description: Run a command in a specific golang docker container
+author: https://github.com/buildkite
+requirements:
+  - docker
