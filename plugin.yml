@@ -9,5 +9,7 @@ configuration:
       type: string
     package:
       type: string
+    environment:
+      type: array
   required: []
 

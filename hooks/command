@@ -1,28 +1,27 @@
 #!/bin/bash
 set -euo pipefail
 
-go_in_docker() {
-  go_version="$1"
-  pkg="$2"
-  command="$3"
-
-  docker run \
-    -v "${PWD}:/go/src/${pkg}" \
-    -w "/go/src/${pkg}" \
-    --rm "golang:${go_version}" \
-    sh -c "$command"
-}
-
 if [[ "${BUILDKITE_PLUGIN_GOLANG_DEBUG:-false}" =~ (true|on|1) ]] ; then
   echo "--- :hammer: Enabling debug mode"
   env | sort | grep BUILDKITE_PLUGIN_GOLANG
 fi
 
 go_version="${BUILDKITE_PLUGIN_GOLANG_VERSION:-latest}"
-package="${BUILDKITE_PLUGIN_GOLANG_PACKAGE:-${BUILDKITE_PIPELINE_SLUG}}"
+pkg="${BUILDKITE_PLUGIN_GOLANG_PACKAGE:-${BUILDKITE_PIPELINE_SLUG}}"
 
-echo "+++ :go: Running in golang:${BUILDKITE_PLUGIN_GOLANG_VERSION}"
-echo -ne '\033[90m$\033[0m' >&2
-echo " ${BUILDKITE_COMMAND}" >&2
+args=(
+  "--rm"
+  "--volume" "$PWD:/go/src/${pkg}"
+  "--workdir" "/go/src/${pkg}"
+)
 
-go_in_docker "$go_version" "$package" "${BUILDKITE_COMMAND}"
+# Parse extra env vars and add them to the docker args
+while IFS='=' read -r name _ ; do
+  if [[ $name =~ ^(BUILDKITE_PLUGIN_GOLANG_ENVIRONMENT_[0-9]+) ]] ; then
+    args+=( "--env" "${!name}" )
+  fi
+done < <(env | sort)
+
+echo "+++ :go: Running ${BUILDKITE_COMMAND} in golang:${go_version}"
+
+docker run "${args[@]}" "golang:${go_version}" sh -c "${BUILDKITE_COMMAND}"

@@ -17,6 +17,20 @@ steps:
         package: github.com/buildkite/agent
 ```
 
+You can pass in additional environment variables:
+
+```yml
+steps:
+  - command: go build .
+    plugins:
+      golang#v1.0.0:
+        version: 1.10.2
+        package: github.com/buildkite/agent
+        environment:
+          - GOOS=darwin
+          - GOARCH=amd64
+```
+
 ## Configuration
 
 ### `version` (required)
@@ -30,6 +44,12 @@ Example: `1.10.2`
 The golang package to use in the gopath in the container.
 
 Exmaple: `github.com/buildkite/agent`
+
+### `environment` (optional)
+
+Extra environment variables to pass to the docker container, in an array. Items can be specified as either `KEY` or `KEY=value`. Each entry corresponds to a Docker CLI `--env` parameter. Values specified as variable names will be passed through from the outer environment.
+
+Examples: `MY_SECRET_KEY`, `MY_SPECIAL_BUT_PUBLIC_VALUE=kittens`
 
 ## License
 
