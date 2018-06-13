@@ -13,7 +13,7 @@ steps:
   - label: ":sparkles: Linter"
     plugins:
       plugin-linter#v2.0.0:
-        id: golang-build
+        id: golang
 
   - label: test running a specific version
     command: go version
