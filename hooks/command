@@ -21,6 +21,7 @@ fi
 go_version="${BUILDKITE_PLUGIN_GOLANG_VERSION:-latest}"
 package="${BUILDKITE_PLUGIN_GOLANG_PACKAGE:-${BUILDKITE_PIPELINE_SLUG}}"
 
+echo "+++ :go: Running in golang:${BUILDKITE_PLUGIN_GOLANG_VERSION}"
 echo -ne '\033[90m$\033[0m' >&2
 echo " ${BUILDKITE_COMMAND}" >&2
 
