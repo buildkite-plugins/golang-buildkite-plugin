@@ -1,6 +1,6 @@
 # Golang Buildkite Plugin
 
-> This used to be the home of the [GOPATH Checkout Buildkite Plugin](https://github.com/buildkite-plugins/gopath-checkout-buildkite-plugin). If you've received "Failed to checkout plugin golang" errors (#1), please update your pipeline.yml plugin name from `golang` to `gopath-checkout`.
+> This used to be the home of the [GOPATH Checkout Buildkite Plugin](https://github.com/buildkite-plugins/gopath-checkout-buildkite-plugin). If you've received "Failed to checkout plugin golang" errors ([#1](https://github.com/buildkite-plugins/golang-buildkite-plugin/issues/1)), please update your pipeline.yml plugin name from `golang` to `gopath-checkout`.
 
 A [Buildkite plugin](https://buildkite.com/docs/agent/v3/plugins) for running a command in a docker container with a [specific golang version](https://hub.docker.com/_/golang/).
 
