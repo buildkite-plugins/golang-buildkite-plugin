@@ -12,7 +12,7 @@ load '/usr/local/lib/bats/load.bash'
   export BUILDKITE_PLUGIN_GOLANG_VERSION="1.10.0"
 
   stub docker \
-    "run -v $PWD:/go/src/example.org/llamas -w /go/src/example.org/llamas --rm golang:1.10.0 'go test ./...' : echo running go test"
+    "run -v $PWD:/go/src/example.org/llamas -w /go/src/example.org/llamas --rm golang:1.10.0 sh -c 'go test ./...' : echo running go test"
 
   run "$PWD/hooks/command"
 
