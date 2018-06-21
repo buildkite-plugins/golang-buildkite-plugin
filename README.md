@@ -14,7 +14,7 @@ steps:
     plugins:
       golang#v1.0.0:
         version: 1.10.2
-        package: github.com/buildkite/agent
+        import: github.com/buildkite/agent
 ```
 
 You can pass in additional environment variables:
@@ -25,7 +25,7 @@ steps:
     plugins:
       golang#v1.0.0:
         version: 1.10.2
-        package: github.com/buildkite/agent
+        import: github.com/buildkite/agent
         environment:
           - GOOS=darwin
           - GOARCH=amd64
@@ -39,7 +39,7 @@ The golang docker image to use. See https://hub.docker.com/_/golang/ for a full 
 
 Example: `1.10.2`
 
-### `package`(required)
+### `import`(required)
 
 The golang package to use in the gopath in the container.
 

@@ -8,7 +8,7 @@ load '/usr/local/lib/bats/load.bash'
 @test "Running command with specific version of golang" {
   export BUILDKITE_PIPELINE_SLUG="alpacas"
   export BUILDKITE_COMMAND="go test ./..."
-  export BUILDKITE_PLUGIN_GOLANG_PACKAGE="example.org/llamas"
+  export BUILDKITE_PLUGIN_GOLANG_IMPORT="example.org/llamas"
   export BUILDKITE_PLUGIN_GOLANG_VERSION="1.10.0"
 
   stub docker \
@@ -27,7 +27,7 @@ load '/usr/local/lib/bats/load.bash'
 @test "Runs command with environment" {
   export BUILDKITE_PIPELINE_SLUG="alpacas"
   export BUILDKITE_COMMAND="go test ./..."
-  export BUILDKITE_PLUGIN_GOLANG_PACKAGE="example.org/llamas"
+  export BUILDKITE_PLUGIN_GOLANG_IMPORT="example.org/llamas"
   export BUILDKITE_PLUGIN_GOLANG_VERSION="1.10.0"
   export BUILDKITE_PLUGIN_GOLANG_ENVIRONMENT_0=MY_TAG=value
   export BUILDKITE_PLUGIN_GOLANG_ENVIRONMENT_1=ANOTHER_TAG=llamas
