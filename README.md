@@ -14,7 +14,7 @@ You can run go commands against a specific version.
 steps:
   - command: go test ./...
     plugins:
-      golang#v1.0.0:
+      golang#v2.0.0:
         version: 1.10.2
         import: github.com/buildkite/agent
 ```
@@ -25,7 +25,7 @@ You can pass in additional environment variables:
 steps:
   - command: go build .
     plugins:
-      golang#v1.0.0:
+      golang#v2.0.0:
         version: 1.10.2
         import: github.com/buildkite/agent
         environment:
