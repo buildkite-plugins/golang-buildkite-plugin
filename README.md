@@ -53,6 +53,8 @@ Extra environment variables to pass to the docker container, in an array. Items 
 
 Examples: `MY_SECRET_KEY`, `MY_SPECIAL_BUT_PUBLIC_VALUE=kittens`
 
+See https://golang.org/doc/install/source#environment for all the possible values that the golang binary respects.
+
 ## License
 
 MIT (see [LICENSE](LICENSE))

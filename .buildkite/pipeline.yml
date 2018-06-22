@@ -21,4 +21,16 @@ steps:
       ${BUILDKITE_REPO}#${BUILDKITE_COMMIT}:
         version: 1.10.2
 
+  - label: test cross compiling
+    command: go build ./tests/helloworld
+    plugins:
+      ${BUILDKITE_REPO}#${BUILDKITE_COMMIT}:
+        version: 1.10.2
+        environment:
+          - GOOS=android
+          - GOARCH=arm
+          - GOARM=7
+
+
+
 
