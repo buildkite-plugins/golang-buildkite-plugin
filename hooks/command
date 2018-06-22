@@ -7,12 +7,12 @@ if [[ "${BUILDKITE_PLUGIN_GOLANG_DEBUG:-false}" =~ (true|on|1) ]] ; then
 fi
 
 go_version="${BUILDKITE_PLUGIN_GOLANG_VERSION:-latest}"
-pkg="${BUILDKITE_PLUGIN_GOLANG_PACKAGE:-${BUILDKITE_PIPELINE_SLUG}}"
+import="${BUILDKITE_PLUGIN_GOLANG_IMPORT:-${BUILDKITE_PIPELINE_SLUG}}"
 
 args=(
   "--rm"
-  "--volume" "$PWD:/go/src/${pkg}"
-  "--workdir" "/go/src/${pkg}"
+  "--volume" "$PWD:/go/src/${import}"
+  "--workdir" "/go/src/${import}"
 )
 
 # Parse extra env vars and add them to the docker args
