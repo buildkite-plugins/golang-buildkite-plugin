@@ -7,7 +7,7 @@ configuration:
   properties:
     version:
       type: string
-    package:
+    import:
       type: string
     environment:
       type: array
