@@ -15,7 +15,7 @@ steps:
   - command: go test ./...
     plugins:
       - golang#v2.0.0:
-          version: 1.10.2
+          version: 1.13.8
           import: github.com/buildkite/agent
 ```
 
@@ -26,7 +26,7 @@ steps:
   - command: go build .
     plugins:
       - golang#v2.0.0:
-          version: 1.10.2
+          version: 1.13.8
           import: github.com/buildkite/agent
           environment:
             - GOOS=darwin
