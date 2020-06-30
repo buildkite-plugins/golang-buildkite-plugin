@@ -1,4 +1,4 @@
-# Golang Buildkite Plugin
+# Golang Buildkite Plugin [![Build status](https://badge.buildkite.com/8fa7684d1bcd18918211e89ea2124295106f886c1383c64657.svg?branch=master)](https://buildkite.com/buildkite/plugins-golang)
 
 > This used to be the home of the [GOPATH Checkout Buildkite Plugin](https://github.com/buildkite-plugins/gopath-checkout-buildkite-plugin). If you've received "Failed to checkout plugin golang" errors ([#1](https://github.com/buildkite-plugins/golang-buildkite-plugin/issues/1)), please update your pipeline.yml plugin name from `golang` to `gopath-checkout`.
 
