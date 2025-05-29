@@ -55,7 +55,7 @@ Examples: `MY_SECRET_KEY`, `MY_SPECIAL_BUT_PUBLIC_VALUE=kittens`
 
 See https://golang.org/doc/install/source#environment for all the possible values that the golang binary respects.
 
-## Compatibility record
+## Compatibility
 
 | Plugin | Elastic Stack | Agent Stack K8s | Hosted (Mac) | Hosted (Linux) | Notes |
 | ------ | :-----------: | :-------------: | :----: | :----: |:---- |
