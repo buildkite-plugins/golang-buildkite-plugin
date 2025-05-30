@@ -57,9 +57,9 @@ See https://golang.org/doc/install/source#environment for all the possible value
 
 ## Compatibility
 
-| Plugin | Elastic Stack | Agent Stack K8s | Hosted (Mac) | Hosted (Linux) | Notes |
-| ------ | :-----------: | :-------------: | :----: | :----: |:---- |
-| Golang | ✅ | ✅ | ❌ | ✅ | Docker not available on Hosted Mac |
+| Elastic Stack | Agent Stack K8s | Hosted (Mac) | Hosted (Linux) | Notes |
+| :-----------: | :-------------: | :----: | :----: |:---- |
+| ✅ | ✅ | ❌ | ✅ | Docker not available on Hosted Mac |
 
 - ✅ Fully supported (all combinations of attributes have been tested to pass)
 - ⚠️ Partially supported (some combinations cause errors/issues)
