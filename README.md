@@ -55,6 +55,16 @@ Examples: `MY_SECRET_KEY`, `MY_SPECIAL_BUT_PUBLIC_VALUE=kittens`
 
 See https://golang.org/doc/install/source#environment for all the possible values that the golang binary respects.
 
+## Compatibility
+
+| Elastic Stack | Agent Stack K8s | Hosted (Mac) | Hosted (Linux) | Notes |
+| :-----------: | :-------------: | :----: | :----: |:---- |
+| ✅ | ✅ | ❌ | ✅ | Docker not available on Hosted Mac |
+
+- ✅ Fully supported (all combinations of attributes have been tested to pass)
+- ⚠️ Partially supported (some combinations cause errors/issues)
+- ❌ Not supported
+
 ## License
 
 MIT (see [LICENSE](LICENSE))
